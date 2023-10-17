@@ -14,7 +14,7 @@ const allowCrossDomain = function (req, res, next) {
 
   if ('OPTIONS' === req.method) {
     console.log('preflight request!')
-    res.sendStatus(200)
+    res.sendStatus(204)
   } else {
     console.log('request!')
     next()
