@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sample HTML Page</title>
+</head>
+<body>
+    <!-- simple request -->
+    <form method="POST" action="http://localhost:8080">
+        <input type="text" name="text"/>
+        <input type="submit">
+    </form>
+    <button onclick="fetchPOST()">POSTする</button>
+    <button onclick="fetchPUT()">PUTする</button>
+
+    <script>
+        async function fetchPOST() {
+            let result = await fetch('http://localhost:8080', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({name: "post"})
+            });
+            console.log(result);
+        }
+
+        async function fetchPUT() {
+            let result = await fetch('http://localhost:8080',{
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({name: "put"})
+            });
+            console.log(result);
+        }
+    </script>    
+</body>
+</html>
